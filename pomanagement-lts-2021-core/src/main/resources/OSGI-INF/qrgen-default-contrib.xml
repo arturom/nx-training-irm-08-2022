@@ -3,7 +3,7 @@
 	name="org.nuxeo.training.pomanagement.service.qrgen-default">
 
 	<extension point="qrcontent"
-		target="org.nuxeo.training.pomanagement.QRGenServiceImpl">
+		target="org.nuxeo.training.pomanagement.QRGenService">
 		<qrcontent>
 			<separator value=";" />
 			<xpath value="dc:title" />
