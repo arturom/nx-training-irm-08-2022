@@ -12,6 +12,8 @@ public class PurchaseOrderAdapter {
 
   protected String titleXpath = "dc:title";
   protected String descriptionXpath = "dc:description";
+  
+  protected String quantityXpath = "purchaseorder:quantity";
 
   public PurchaseOrderAdapter(DocumentModel doc) {
     this.doc = doc;
@@ -24,6 +26,11 @@ public class PurchaseOrderAdapter {
   // For instance to avoid letting people change the document state using your adapter,
   // because this would be handled through workflows / buttons / events in your application.
   //
+
+  public void create() {
+    CoreSession session = doc.getCoreSession();
+    doc = session.createDocument(doc);
+  }
 
   public void save() {
     CoreSession session = doc.getCoreSession();
@@ -67,4 +74,37 @@ public class PurchaseOrderAdapter {
   public void setDescription(String value) {
     doc.setPropertyValue(descriptionXpath, value);
   }
+  
+  public String getProduct() {
+    return (String) doc.getPropertyValue("purchaseorder:product");
+  }
+
+  public void setProduct(String value) {
+    doc.setPropertyValue("purchaseorder:product", value);
+  }
+  
+  public int getQuantity() {
+	  return ((Long) doc.getPropertyValue(quantityXpath)).intValue();
+  }
+  
+  public void setQuantity(int quantity) {
+	  doc.setPropertyValue(quantityXpath, quantity);
+  }
+
+  public double getPrice() {
+    return (double) doc.getPropertyValue("purchaseorder:price");
+  }
+
+  public void setPrice(double value) {
+    doc.setPropertyValue("purchaseorder:price", value);
+  }
+  
+  public void toNegotiating() {
+	  doc.followTransition("to_negotiating");
+  }
+  
+  public void toDraft() {
+	  doc.followTransition("to_draft");
+  }
+  
 }
