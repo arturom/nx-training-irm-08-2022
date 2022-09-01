@@ -72,7 +72,7 @@ public class TestPurchaseOrders {
 		
 		doc = session.getDocument(doc.getRef());
 		
-		assertEquals("My Title", doc.getTitle());
+		assertEquals("New Purchase Order", doc.getTitle());
 	}
 	
 	@Test
