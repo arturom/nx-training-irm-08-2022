@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<component name="org.nuxeo.training.pomanagement.QRGenService">
+
+  <implementation class="org.nuxeo.training.pomanagement.QRGenServiceImpl" />
+
+  <service>
+    <provide interface="org.nuxeo.training.pomanagement.QRGenService" />
+  </service>
+</component>
