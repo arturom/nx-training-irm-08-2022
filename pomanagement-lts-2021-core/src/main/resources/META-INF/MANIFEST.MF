@@ -10,4 +10,5 @@ Nuxeo-Component: OSGI-INF/checkuserpermission-operation-contrib.xml,
  OSGI-INF/org.nuxeo.training.pomanagementpurchaseorder-adapter-contrib.xml,
  OSGI-INF/purchaseordercreationlistener-listener-contrib.xml,
  OSGI-INF/qrgenservice-service.xml,
- OSGI-INF/qrgen-default-contrib.xml
+ OSGI-INF/qrgen-default-contrib.xml,
+ OSGI-INF/qrgenoperation-operation-contrib.xml
