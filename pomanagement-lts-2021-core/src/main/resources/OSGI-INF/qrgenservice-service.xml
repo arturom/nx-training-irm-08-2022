@@ -6,4 +6,9 @@
   <service>
     <provide interface="org.nuxeo.training.pomanagement.QRGenService" />
   </service>
+  
+  <extension-point name="qrcontent">
+  	<object class="org.nuxeo.training.pomanagement.QRGenDescriptor" />
+  </extension-point>
+  
 </component>

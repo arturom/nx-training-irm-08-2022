@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<component
+	name="org.nuxeo.training.pomanagement.service.qrgen-default">
+
+	<extension point="qrcontent"
+		target="org.nuxeo.training.pomanagement.QRGenServiceImpl">
+		<qrcontent>
+			<separator value=";" />
+			<xpath value="dc:title" />
+			<xpath value="purchaseorder:price" />
+		</qrcontent>
+	</extension>
+
+</component>
