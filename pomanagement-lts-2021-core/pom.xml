@@ -11,12 +11,12 @@
   <description>Nuxeo Purchaser Order Managment Core</description>
 
   <dependencies>
-	<dependency>
-	   <groupId>nuxeo-studio</groupId>
-	   <artifactId>amejia-SANDBOX</artifactId>
-	   <version>0.1.0</version>
-	   <scope>test</scope>
-	</dependency>      
+    <dependency>
+      <groupId>nuxeo-studio</groupId>
+      <artifactId>amejia-SANDBOX</artifactId>
+      <version>0.1.0</version>
+      <scope>test</scope>
+    </dependency>
     <dependency>
       <groupId>org.nuxeo.ecm.automation</groupId>
       <artifactId>nuxeo-automation-core</artifactId>
@@ -24,6 +24,19 @@
     <dependency>
       <groupId>org.nuxeo.ecm.automation</groupId>
       <artifactId>nuxeo-automation-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.nuxeo.ecm.core</groupId>
+      <artifactId>nuxeo-core-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.nuxeo.runtime</groupId>
+      <artifactId>nuxeo-runtime</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.nuxeo.ecm.core</groupId>
+      <artifactId>nuxeo-core-test</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
