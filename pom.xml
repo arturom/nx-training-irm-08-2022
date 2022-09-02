@@ -22,6 +22,7 @@
 
   <modules>
     <module>pomanagement-lts-2021-core</module>
+    <module>pomanagement-lts-2021-package</module>
   </modules>
 
   <scm />
@@ -37,6 +38,11 @@
       <dependency>
         <groupId>org.nuxeo.training.pomanagement</groupId>
         <artifactId>pomanagement-core</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.nuxeo.training.pomanagement</groupId>
+        <artifactId>pomanagement-lts-2021-package</artifactId>
         <version>${project.version}</version>
       </dependency>
     </dependencies>
