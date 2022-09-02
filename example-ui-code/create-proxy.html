@@ -1,0 +1,127 @@
+<!--
+`create-proxy`
+@group Nuxeo UI
+@element create-proxy
+-->
+<dom-module id="create-proxy">
+  <template>
+    <style include="nuxeo-action-button-styles">
+      .content {
+        @apply --layout-vertical;
+      }
+    </style>
+
+    <div class="action" on-tap="_toggleDialog">
+      <paper-icon-button id="bt" icon="[[icon]]"></paper-icon-button>
+      <span class="label" hidden$="[[!showLabel]]">[[label]]</span>
+    </div>
+    <paper-tooltip for="bt">[[label]]</paper-tooltip>
+
+    <nuxeo-dialog id="dialog" on-iron-overlay-closed="_dialogClosed" with-backdrop>
+      <div class="content">
+        <h4>Create Proxy</h4>
+        <div>
+          <nuxeo-path-suggestion value="{{path}}" label="Path to where to create the proxy"></nuxeo-path-suggestion>
+        </div>
+      </div>
+      <div class="buttons">
+        <paper-button noink dialog-dismiss on-tap="_close">Close</paper-button>
+        <nuxeo-operation-button
+            icon="icons:account-box" label="Create Proxy" show-label="true"
+            operation="Document.CreateLiveProxy" input="[[document]]" params="[[params]]"
+            notification="success!" error-label="Operation failed">
+        </nuxeo-operation-button>
+        <!-- <paper-button noink dialog-confirm class="primary" on-tap="_ok">Create Proxy</paper-button> -->
+      </div>
+    </nuxeo-dialog>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'create-proxy',
+      behaviors: [Nuxeo.LayoutBehavior],
+      listeners: {
+        'operation-executed': '_handleOperationExecuted'
+      },
+      properties: {
+        
+        document: {
+          type: Object
+        },
+
+        /**
+         * Label to display in the action button.
+         */
+        label: {
+          type: String,
+          value: 'Action Label'
+        },
+
+        /**
+         * `true` if the action should display the label, `false` otherwise.
+         */
+        showLabel: {
+          type: Boolean,
+          value: false,
+        },
+
+        /**
+         * Icon to use (iconset_name:icon_name) in the action button.
+         */
+        icon: {
+          type: String,
+          value: 'iconset_name:icon_name'
+        },
+        
+        path: {
+          type: String,
+          value: null,
+          observer: '_pathUpdated'
+        },
+        
+        params: {
+          type: Object,
+          value: {'Destination Path': "/"}
+        }
+      },
+
+      _handleOperationExecuted: function (e) {
+        this.$.dialog.toggle();
+      },
+      
+      _pathUpdated: function(newPath) {
+        this.params = {'Destination Path': this.path};
+      },
+
+      _toggleDialog: function() {
+        this.$.dialog.toggle();
+      },
+
+      /**
+       * Callback executed when the user presses the "ok" button.
+       */
+      _ok: function() {
+        // implement me
+      },
+
+      /**
+       * Callback executed when the user presses the "close" button.
+       *
+       * Note that the "close" button already have a "dialog-dismiss" property that makes the button close the dialog
+       * when clicked. If you don't need to perform additional actions, this method is not needed.
+       */
+      _close: function() {
+        // implement me
+      },
+
+      /**
+       * Useful callback to execute some action after the dialog is closed. Can be removed if it's not necessary.
+       */
+      _dialogClosed: function() {
+        // implement me
+        this.path = "/";
+      }
+    });
+  </script>
+</dom-module>
